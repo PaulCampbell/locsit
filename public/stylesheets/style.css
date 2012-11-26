@@ -5,3 +5,22 @@ body {
 a {
   color: #00b7ff;
 }
+.tweet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tweet-list li img {
+  float: left;
+  margin-right: 5px;
+}
+.tweet-list li h2 a {
+  size: 15px;
+  padding: 0;
+  line-height: 10px;
+  margin-bottom: 5px;
+}
+.tweet-list li time {
+  size: small;
+  display: block;
+}

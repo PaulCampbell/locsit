@@ -1,6 +1,17 @@
 extends layout
 
 block mainContent
-  h1= title
-  p Welcome to #{title}
+  h1
+    a(href="https://twitter.com/search?q=#{hashtag}") ##{hashtag}
 
+  ul(class="tweet-list")
+    each tweet in tweets
+      li(class="clearfix")
+        div
+          img(src="#{tweet.profile_image_url}")
+          h4
+            a(href="https://twitter.com/#{tweet.from_user}") @#{tweet.from_user}
+
+          !{tweet.text}
+          time
+            !{tweet.created_at}
