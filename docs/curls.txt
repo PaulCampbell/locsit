@@ -1,0 +1,15 @@
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"placelist":{"description":"My favorite coffee shops in Amsterdam","name":"Coffee time"}}'  http://localhost:9451/api/user/paul3/placelist
+
+
+
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"place":{"name":"Abraxis", "description": "Psychadelic place in the city centre", "latitude": "53.23432", "longitude": "1.123123"}}' http://localhost:9451/api/user/paul3/Coffeeshops 1/50b230126e63fbe3ef000002/place
+
+
+
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"place":{"name":"Further North", "description": "Cozy little bar in Chapel Allerton - Nice beer, not so nice prices!", "latitude": "53.23432", "longitude": "1.123123"}}' http://localhost:9451/api/user/paul3/placelist/50b2560c18c0c22cfd000002/place
+
+
+
+
+
+
