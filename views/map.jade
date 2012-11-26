@@ -3,6 +3,7 @@ extends layout
 block mainContent
   h1
     a(href="https://twitter.com/search?q=#{hashtag}") ##{hashtag}
+  p To add an entry to this page, tweet with the hashtag ##{hashtag}. To put your entry on the map, add your postcode and a score out of ten in the format 3/10
 
   ul(class="tweet-list")
     each tweet in tweets
