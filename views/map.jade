@@ -5,14 +5,18 @@ block mainContent
     a(href="https://twitter.com/search?q=#{hashtag}") ##{hashtag}
   p To add an entry to this page, tweet with the hashtag ##{hashtag}. To put your entry on the map, add your postcode and a score out of ten in the format 3/10
 
-  ul(class="tweet-list")
-    each tweet in tweets
-      li(class="clearfix")
-        div
-          img(src="#{tweet.profile_image_url}")
-          h4
-            a(href="https://twitter.com/#{tweet.from_user}") @#{tweet.from_user}
+  div(class="span4")
+    ul(class="tweet-list")
+      each tweet in tweets
+        li(class="clearfix")
+          div
+            img(src="#{tweet.profile_image_url}")
+            h4
+              a(href="https://twitter.com/#{tweet.from_user}") @#{tweet.from_user}
 
-          !{tweet.text}
-          time
-            !{tweet.created_at}
+            !{tweet.text}
+            time
+              !{tweet.created_at}
+
+  div(class="span7")
+    div map goes here

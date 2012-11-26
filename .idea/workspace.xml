@@ -23,25 +23,25 @@
       <file leaf-file-name="index.jade" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0">
+            <state line="9" column="0" selection-start="147" selection-end="147" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="map.jade" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="map.jade" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/map.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="155" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0">
+            <state line="20" column="18" selection-start="629" selection-end="629" vertical-scroll-proportion="0.7">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Models.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Models.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/Models.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="33" selection-start="992" selection-end="992" vertical-scroll-proportion="0.5686901">
+            <state line="39" column="0" selection-start="1105" selection-end="1105" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -108,7 +108,7 @@
       <file leaf-file-name="layout.jade" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/layout.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="28" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0">
+            <state line="26" column="8" selection-start="878" selection-end="878" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -128,23 +128,23 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/tests/web_spec.coffee" />
         <option value="$PROJECT_DIR$/test/mocha.opts" />
-        <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/lib/TwitterService.js" />
         <option value="$PROJECT_DIR$/test/web_spec.coffee" />
         <option value="$PROJECT_DIR$/test/map_action_specs.coffee" />
         <option value="$PROJECT_DIR$/actions/home.js" />
-        <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.styl" />
-        <option value="$PROJECT_DIR$/views/map.jade" />
         <option value="$PROJECT_DIR$/test/models_spec.coffee" />
         <option value="$PROJECT_DIR$/lib/Models.js" />
+        <option value="$PROJECT_DIR$/views/index.jade" />
+        <option value="$PROJECT_DIR$/views/layout.jade" />
+        <option value="$PROJECT_DIR$/views/map.jade" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="57" />
-    <option name="y" value="50" />
+    <option name="x" value="426" />
+    <option name="y" value="353" />
     <option name="width" value="1440" />
     <option name="height" value="724" />
   </component>
@@ -411,7 +411,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="57" y="50" width="1440" height="724" extended-state="0" />
+    <frame x="426" y="353" width="1440" height="724" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -504,8 +504,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="0" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1353968636000" expanded="true" signature="257:275" placeholder="{...}" />
-            <marker date="1353968636000" expanded="true" signature="346:348" placeholder="{...}" />
+            <marker date="1353970834000" expanded="true" signature="257:275" placeholder="{...}" />
+            <marker date="1353970834000" expanded="true" signature="346:348" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -520,20 +520,6 @@
     <entry file="file://$PROJECT_DIR$/test/map_action_specs.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="0" selection-start="737" selection-end="737" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="28" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -577,13 +563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/map.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="155" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/TwitterService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="247" selection-end="247" vertical-scroll-proportion="0.0">
@@ -600,7 +579,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/Models.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="33" selection-start="992" selection-end="992" vertical-scroll-proportion="0.5686901">
+        <state line="39" column="0" selection-start="1105" selection-end="1105" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="147" selection-end="147" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="8" selection-start="878" selection-end="878" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/map.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="18" selection-start="629" selection-end="629" vertical-scroll-proportion="0.7">
           <folding />
         </state>
       </provider>
