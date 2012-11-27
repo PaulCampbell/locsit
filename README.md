@@ -1,4 +1,4 @@
 locsit
 ======
 
-My #OneWeekNodeHack 
+My #OneWeekNodeHack
