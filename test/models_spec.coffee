@@ -12,6 +12,16 @@ describe 'Models', ->
       tweet.can_be_added_to_map.should.equal false
       done()
 
+    it 'extracts embedded postcode outcode', (done) ->
+      tweet = new Models.Tweet({text:'some crap and an embedded outcode LS17'})
+      tweet.embedded_postcode.should.equal 'LS17'
+      done()
+
+    it 'extracts FULL embedded postcode', (done) ->
+          tweet = new Models.Tweet({text:'some crap and an embedded outcode LS17 6JR'})
+          tweet.embedded_postcode.should.equal 'LS17 6JR'
+          done()
+
     it 'tweet with location but no score can not be added to map', (done) ->
       tweet = new Models.Tweet({text:"some text with postcode LS17 6JR but no score."})
       tweet.can_be_added_to_map.should.equal false

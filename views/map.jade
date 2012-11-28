@@ -5,7 +5,7 @@ block mainContent
     a(href="https://twitter.com/search?q=#{hashtag}") ##{hashtag}
   p To add an entry to this page, tweet with the hashtag ##{hashtag}. To put your entry on the map, add your postcode and a score out of ten in the format 3/10
 
-  div(class="span4")
+  div(class="span3")
     ul(class="tweet-list")
       each tweet in tweets
         li(class="clearfix")
@@ -18,6 +18,6 @@ block mainContent
             time
               !{tweet.created_at}
 
-  div(class="span7")
+  div(class="span9")
     div(id="map_canvas")
 
