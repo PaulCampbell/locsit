@@ -1,31 +1,41 @@
-var Twitter = require('twitter')
-var Models = require('./Models')
+var Models = require('../lib/Models');
+var TwitterService = require('../lib/TwitterService')
 
 
-var twitter = new Twitter();
+function map(req,res) {
 
-var thisService = this
+    var tag = req.params.hashtag;
 
-var getTweets = function(hashtag, callback){
-  // Grab the tweets for this tag from the database
-      Models.Tweet.find({hashtag:hashtag})
+    function renderMapPage(tweets){
+        res.render('map', {
+            tweets: tweets,
+            title: '#' + tag +  ': Realtime Twitter Hashmaps',
+            hashtag:tag
+        });
+    }
+
+
+    // first we log the visit
+    var visit = new Models.Visit();
+    visit.hashtag = tag;
+    visit.ip_address = req.connection.remoteAddress;
+    visit.save(function(){
+      // Grab the tweets for this tag from the database
+      Models.Tweet.find({hashtag:tag})
       .limit(100).sort('-created_at')
       .exec(function(err, docs){
         if(err)
-        {
           console.log(err)
-          callback(err)
-        }
         else
         {
           if(docs.length==0)
           {
             // there weren't any in the database. lets get some and create some docs
             var tweetDocs = []
-              thisService.search(hashtag, function(data){
+            TwitterService.search(tag, function(data){
                 data.results.forEach(function(tweet){
                     var t = new Models.Tweet({
-                        hashtag: hashtag,
+                        hashtag: tag,
                         from_user:tweet.from_user,
                         from_user_name: tweet.from_user_name,
                         text: tweet.text,
@@ -40,22 +50,16 @@ var getTweets = function(hashtag, callback){
                     tweetDocs.push(t);
                     t.save();
                 })
-                callback(null, tweetDocs);
+                renderMapPage(tweetDocs);
             });
           }
           else
           {
-              callback(null, docs);
+              renderMapPage(docs);
           }
         }
+      })
     })
 }
 
-exports.getTweets = getTweets
-
-var search = function(searchTerm, cb) {
-    twitter.search(searchTerm, function(data) {
-        cb(data);
-    });
-}
-exports.search = search
+exports.hashmap = map;

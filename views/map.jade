@@ -14,7 +14,7 @@ block mainContent
             h4
               a(href="https://twitter.com/#{tweet.from_user}") @#{tweet.from_user}
 
-            !{tweet.text}
+            !{tweet.text_as_html}
             time
               !{tweet.created_at}
 

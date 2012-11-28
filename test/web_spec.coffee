@@ -1,6 +1,5 @@
-should = require 'assert'
+should = require 'should'
 zombie = require 'zombie'
-assert = require 'assert'
 
 describe 'Web tests', ->
   describe 'index page', ->
