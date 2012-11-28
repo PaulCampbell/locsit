@@ -3,9 +3,24 @@ var TwitterService = require('../lib/TwitterService')
 var ErrorHandler = require('./errorHandler')
 
 function home(req,res) {
-    res.render('index', {
-      title: 'Realtime Twitter Hashmaps'
-    });
+    Models.Visit.distinct('hashtag').limit(100).sort('-visit_date')
+          .exec(function(err, docs){
+            if(err)
+            {
+                res.render('index', {
+                      hashtags: [],
+                      title: 'Realtime Twitter Hashmaps'
+                    });
+            }
+            else
+            {
+                res.render('index', {
+                      hashtags: docs,
+                      title: 'Realtime Twitter Hashmaps'
+                    });
+            }
+        });
+
 }
 
 function map(req,res) {

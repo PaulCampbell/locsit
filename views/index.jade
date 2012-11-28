@@ -4,6 +4,7 @@ block mainContent
   h1= title
   p Hash map all the things.
   h2 Recently active maps
-  ul
-    li
-      a(href="/sometag") #sometag
+  ul(id="recent-tags")
+    each tag in hashtags
+      li
+        a(href="/#{tag}") #{tag}
