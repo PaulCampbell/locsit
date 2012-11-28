@@ -1,4 +1,4 @@
-var App = (function (google, HeatmapOverlay) {
+var App = (function (google, HeatmapOverlay, $) {
 	var Api = {},
      map,
      markers,
@@ -9,13 +9,8 @@ var App = (function (google, HeatmapOverlay) {
      mapCentreLat,
      mapCentreLong,
      tweets,
-     heatmapMarkers,
-    heatmap;
-
-    var testData={
-        		max: 10,
-        		data: [{lat: 53.567719, lng:-1.044, count: 4},{lat: 51.5608, lng:-1.724, count: 7}]
-    }
+     heatmap,
+     heatmapData;
 
 
 	function init() {
@@ -31,17 +26,34 @@ var App = (function (google, HeatmapOverlay) {
             scaleControl: true,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        heatmapMarkers = [];
+        heatmapData = {
+                		max: 10,
+                		data: []
+                      };
         tweets = [];
+
+        getTweets($);
 
         map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
         heatmap = new HeatmapOverlay(map, {"radius":15, "visible":true, "opacity":60});
 
          google.maps.event.addListenerOnce(map, "idle", function(){
-            heatmap.setDataSet(testData);
+            heatmap.setDataSet(heatmapData);
         });
 	}
 
+    function getTweets($)
+    {
+        $.get('api/map/maptwit1', function(data) {
+
+          for (var i = 0; i < data.length; i++)
+          {
+              if(data[i].latitude_for_map && data[i].longitude_for_map)
+              heatmapData.data.push({lat: data[i].latitude_for_map, lng:data[i].longitude_for_map, count: 4});
+          }
+            console.log(heatmapData.data)
+        });
+    }
 
 	
 	Api.Init = function(){
@@ -54,7 +66,7 @@ var App = (function (google, HeatmapOverlay) {
     }
 
 	return Api;
-}(google, HeatmapOverlay));
+}(google, HeatmapOverlay, $));
 
 
 App.Init();

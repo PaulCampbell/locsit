@@ -44,3 +44,32 @@ describe 'Models', ->
       done()
 
 
+    describe 'Setting the tweet location for use on the map', ->
+
+      it 'tweet containing postcode should do a geo lookup and use that for map positioning', (done) ->
+        tweet = new Models.Tweet({text: 'tweet body text and postcode SN6 7NU', longitude: -1.5, latitude: 51.2})
+        tweet.setLocationForMaps (err, instance) ->
+          instance.longitude_for_map.should.exist
+          instance.longitude_for_map.should.not.equal instance.longitude
+          instance.latitude_for_map.should.exist
+          instance.latitude_for_map.should.not.equal instance.latitude
+          done()
+
+      it 'tweet containing outcode should do a geo lookup and use that for map positioning', (done) ->
+        tweet = new Models.Tweet({text: 'tweet body text and postcode SN2', longitude: -1.5, latitude: 51.2})
+        tweet.setLocationForMaps (err, instance) ->
+          instance.longitude_for_map.should.exist
+          instance.longitude_for_map.should.not.equal instance.longitude
+          instance.latitude_for_map.should.exist
+          instance.latitude_for_map.should.not.equal instance.latitude
+          done()
+
+      it 'tweet without postcode should use tweet geo information for map positioning', (done) ->
+        tweet = new Models.Tweet({text: 'tweet body text', longitude: -1.5, latitude: 51.2})
+        tweet.setLocationForMaps (err, instance)  ->
+          instance.longitude_for_map.should.exist
+          instance.longitude_for_map.should.equal instance.longitude
+          instance.latitude_for_map.should.exist
+          instance.latitude_for_map.should.equal instance.latitude
+          done()
+

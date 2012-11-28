@@ -11,7 +11,8 @@
     "stylus": "*",
     "mongoose": ">=2.7.1",
     "underscore": ">=1.4.2",
-    "twitter": "*"
+    "twitter": "*",
+    "geocoder": "*"
   },
     "devDependencies": {
       "mocha": ">=1.5.0",
