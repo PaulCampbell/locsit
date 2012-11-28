@@ -29,6 +29,5 @@ describe 'Web tests', ->
     describe 'map', ->
       it 'should return a json result of stored results', (done) ->
         zombie.visit 'http://localhost:3000/api/map/thehashtag',(e, browser)  ->
-          console.log browser
-           browser.text('title').should.equal '#thehashtag: Realtime Twitter Hashmaps'
+           browser.response.statusCode.should.equal 200
            done()
