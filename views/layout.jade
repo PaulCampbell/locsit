@@ -3,7 +3,6 @@ html(lang="en")
   head
     title= title
     link(href="bootstrap/css/bootstrap.min.css", rel="stylesheet")
-    link(href="bootstrap/css/bootstrap-responsive.min.css", rel="stylesheet")
     link(rel='stylesheet', href='stylesheets/style.css')
     link(href='http://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
     //if lt IE 9
@@ -14,13 +13,19 @@ html(lang="en")
 
     header(class="navbar navbar-inverse navbar-fixed-top")
       div(class="navbar-inner ")
-        div(class="container-fluid maxwidthfix")
+        a(class="brand",href="/")
+          strong &#35;map
+          | tw.it
+        span(class="tag")
+          - if(typeof(hashtag) != 'undefined')
+            span Map for the
+              a(href="https://twitter.com/search?q=#{hashtag}") ##{hashtag}
+              |  tag
+          - else
+            | Map all the things
 
-          a(class="brand",href="/")
-            strong &#35;map
-            | tw.it
-
-          div(class="brand_msg") Map all the things
+        span(class="tag pull-right", style="padding-right:10px; font-weight:bold")
+          a(href="") WTF?
 
     block mainContent
 

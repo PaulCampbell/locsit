@@ -1,8 +1,19 @@
-@media (min-width: 979px)
-  body
-    padding-top: 44px
+header a
+  margin-left:5px
+  color:white
+
+header a:hover
+  color:#dedede
+
+header .tag
+  position:relative
+  top: 15px
+
+
+body
+    padding-top: 45px
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
-  a
+a
     color: #00B7FF
 
 html, body
@@ -23,7 +34,6 @@ html, body
 
 .tweet-list
   list-style:none
-  padding:0
   margin:0
   width: 100%;
   height: 100%;
@@ -45,6 +55,9 @@ html, body
   size:small
   display:block
 
+.tweet-list li div
+  padding:0 5px 0 5px
+
 a.brand
   font-family: Montserrat
   font-weight:700
@@ -53,6 +66,15 @@ a.brand
 .brand_msg
   color:white
   margin-top:15px
+
+.small-column
+  width:30%
+  float:left
+
+
+.large-column
+  width:70%
+  float:left
 
 @media(max-width:979px)
   .brand_msg

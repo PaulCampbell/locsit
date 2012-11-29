@@ -2,7 +2,7 @@ extends layout
 
 block mainContent
 
-  div(class="span3 fill")
+  div(class="small-column fill")
     ul(class="tweet-list")
       each tweet in tweets
         li(class="clearfix")
@@ -15,6 +15,6 @@ block mainContent
             time
               !{tweet.created_at}
 
-  div(class="span9 fill")
+  div(class="large-column fill")
     div(id="map_canvas")
 
