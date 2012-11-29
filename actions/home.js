@@ -9,14 +9,14 @@ function home(req,res) {
             {
                 res.render('index', {
                       hashtags: [],
-                      title: 'Realtime Twitter Hashmaps'
+                      title: 'Realtime Twitter Maps'
                     });
             }
             else
             {
                 res.render('index', {
                       hashtags: docs,
-                      title: 'Realtime Twitter Hashmaps'
+                      title: 'Realtime Twitter Maps'
                     });
             }
         });
@@ -42,7 +42,7 @@ function map(req,res) {
           {
               res.render('map', {
                   tweets: tweets,
-                  title: '#' + tag +  ': Realtime Twitter Hashmaps',
+                  title: '#' + tag +  ': Realtime Twitter Maps',
                   hashtag:tag
               });
           }

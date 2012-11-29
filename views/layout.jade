@@ -11,21 +11,22 @@ html(lang="en")
 
   body
 
-    header(class="navbar navbar-inverse navbar-fixed-top")
+    header(class="navbar navbar-inverse navbar-fixed-top ")
       div(class="navbar-inner ")
-        a(class="brand",href="/")
-          strong &#35;map
-          | tw.it
-        span(class="tag")
-          - if(typeof(hashtag) != 'undefined')
-            span Map for the
-              a(href="https://twitter.com/search?q=#{hashtag}") ##{hashtag}
-              |  tag
-          - else
-            | Map all the things
+        div(class="container-fluid")
+            a(class="brand",href="/")
+              strong &#35;map
+              | tw.it
+            span(class="tag")
+              - if(typeof(hashtag) != 'undefined')
+                span Map for the
+                  a(href="https://twitter.com/search?q=#{hashtag}") ##{hashtag}
+                  |  tag
+              - else
+                | Map all the things
 
-        span(class="tag pull-right", style="padding-right:10px; font-weight:bold")
-          a(href="") WTF?
+            span(class="tag pull-right", style="padding-right:10px; font-weight:bold")
+              a(href="") WTF?
 
     block mainContent
 

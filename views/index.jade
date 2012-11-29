@@ -1,12 +1,42 @@
 extends layout
 
 block mainContent
-  h1= title
-  p Hash map all the things.
-  h2 Recently active maps
-  ul(id="recent-tags")
-    each tag in hashtags
-      li
-        a(href="/#{tag}") #{tag}
+  div
+      div(class="jumbotron masthead")
+        div(class="container-fluid")
+          h1= title
+          p MapTw.it is a website that allows you to track stuff. From Twitter. On a Map.
+          p The idea is shamelessly stolen from
+            |  <a href="http://uksnowmap.com/">Uk Snow Map</a>
+            | which is a thing that a guy called
+            |  <a href="https://twitter.com/benmarsh">@benmarsh</a>
+            | made for tracking snow fall in the UK. Nice one Ben!
 
-  footer footer
+
+      div(class="container-fluid")
+          div(class="half")
+              h2 How it works
+              p Basically you can view a map for any hashtag. Add a postcode
+              | or zipcode, or geocoded your tweet and it will get pinned on the map.  Add a score out
+              | of ten in the format 4/10, and the tweet will be added to a heat map.
+              h3 You what?
+              p So, let's say there are floods affecting the UK, and people are tweeting the the hashtag
+              | #TheseFloodsAreInconvenient, You can go to the page
+              | <a href="/TheseFloodsAreInconvenient">http://maptw.it/TheseFloodsAreInconvenient</a>
+              | and you can see everybody's posts in real time.
+              h3 An example please
+              p "LS10 1PQ #TheseFloodsAreInconvenient 6/10 The river's burst its bank"
+
+
+          div(class="half")
+              h2 Give me a map
+              form(method="get")
+                input(value="The Hashtag you want to track")
+                input(type="button", value="Go")
+              h2 Recently active maps
+              ul(id="recent-tags")
+                each tag in hashtags
+                  li
+                    a(href="/#{tag}") #{tag}
+
+      footer footer
