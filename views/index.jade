@@ -15,6 +15,7 @@ block mainContent
 
       div(class="container-fluid")
           div(class="half")
+            div(style="padding-right:20px")
               h2 How it works
               p Basically you can view a map for any hashtag. Add a postcode
               | or zipcode, or geocoded your tweet and it will get pinned on the map.  Add a score out
@@ -30,9 +31,12 @@ block mainContent
 
           div(class="half")
               h2 Give me a map
+              p Enter the hashtag you want to see mapped
               form(method="get")
-                input(value="The Hashtag you want to track")
-                input(type="button", value="Go")
+                div(class="input-prepend input-append")
+                    span(class="add-on")#
+                    input(placeholder="Hashtag", class="input-xlarge", type="text")
+                    button(class="btn", type="button") Go
               h2 Recently active maps
               ul(id="recent-tags")
                 each tag in hashtags

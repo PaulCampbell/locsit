@@ -9,6 +9,10 @@ header .tag {
   position: relative;
   top: 15px;
 }
+footer {
+  min-height: 350px;
+  margin-top: 70px;
+}
 body {
   padding-top: 45px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
