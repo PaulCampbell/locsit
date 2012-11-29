@@ -13,12 +13,12 @@ describe 'Web tests', ->
 
     it 'should return the home page with title set',(done) ->
       zombie.visit 'http://localhost:3000/',(e, browser)  ->
-        browser.text('title').should.equal 'Realtime Twitter Hashmaps'
+        browser.text('title').should.equal 'Realtime Twitter Maps'
         done()
 
     it 'should render the "home" template', (done) ->
       zombie.visit 'http://localhost:3000/',(e, browser)  ->
-         browser.text('h1').should.equal 'Realtime Twitter Hashmaps'
+         browser.text('h1').should.equal 'Realtime Twitter Maps'
          done()
 
     it 'should contain a list of recent links', (done) ->

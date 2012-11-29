@@ -47,24 +47,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/actions/api.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="34" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Models.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/Models.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="38" selection-start="1854" selection-end="1872" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TwitterService.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/TwitterService.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -92,10 +74,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jade" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.jade" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="30" selection-start="1534" selection-end="1547" vertical-scroll-proportion="0.4258373">
+            <state line="36" column="30" selection-start="1534" selection-end="1547" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="map_action_specs.coffee" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/map_action_specs.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="39" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web_spec.coffee" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/web_spec.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="60" selection-start="707" selection-end="707" vertical-scroll-proportion="0.4784689">
               <folding />
             </state>
           </provider>
@@ -121,7 +121,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/test/map_action_specs.coffee" />
-        <option value="$PROJECT_DIR$/test/web_spec.coffee" />
         <option value="$PROJECT_DIR$/public/javascripts/heatmap.js" />
         <option value="$PROJECT_DIR$/public/javascripts/heatmapsGMaps.js" />
         <option value="$PROJECT_DIR$/package.json" />
@@ -136,6 +135,7 @@
         <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.styl" />
         <option value="$PROJECT_DIR$/views/index.jade" />
+        <option value="$PROJECT_DIR$/test/web_spec.coffee" />
       </list>
     </option>
   </component>
@@ -504,11 +504,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/javascripts/heatmap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="424" column="0" selection-start="15761" selection-end="15761" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/heatmapsGMaps.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="156" column="1" selection-start="4109" selection-end="4109" vertical-scroll-proportion="0.0" />
@@ -517,13 +512,6 @@
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="13" selection-start="278" selection-end="286" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/map_action_specs.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="39" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -607,7 +595,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="30" selection-start="1534" selection-end="1547" vertical-scroll-proportion="0.4258373">
+        <state line="36" column="30" selection-start="1534" selection-end="1547" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/map_action_specs.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="39" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/web_spec.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="60" selection-start="707" selection-end="707" vertical-scroll-proportion="0.4784689">
           <folding />
         </state>
       </provider>
