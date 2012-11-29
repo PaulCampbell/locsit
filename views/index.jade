@@ -17,16 +17,20 @@ block mainContent
           div(class="half")
             div(style="padding-right:20px")
               h2 How it works
-              p Basically you can view a map for any hashtag. Add a postcode
-              | or zipcode, or geocoded your tweet and it will get pinned on the map.  Add a score out
-              | of ten in the format 4/10, and the tweet will be added to a heat map.
+              p Basically you can view a map for any hashtag.
+              p  Add a postcode or zipcode, or geocode your tweet and it will get pinned on the map.
+              p  Add a score out of ten in the format 4/10, and the tweet will be added to a heat map.
+
+
               h3 You what?
-              p So, let's say there are floods affecting the UK, and people are tweeting the the hashtag
-              | #TheseFloodsAreInconvenient, You can go to the page
-              | <a href="/TheseFloodsAreInconvenient">http://maptw.it/TheseFloodsAreInconvenient</a>
-              | and you can see everybody's posts in real time.
-              h3 An example please
-              p "LS10 1PQ #TheseFloodsAreInconvenient 6/10 The river's burst its bank"
+              p So, let's say there are floods affecting the UK, and people are tweeting with the hashtag
+                | #TheseFloodsAreInconvenient.
+              p You can visit the page <a href="/TheseFloodsAreInconvenient">http://maptw.it/TheseFloodsAreInconvenient</a>
+                | and see were and how serious the floods are as reported in real time by the good folks on Twitter
+
+
+              h3 A contrived example please
+              p "The river's burst its bank again. LS10 1PQ 6/10 #TheseFloodsAreInconvenient"
 
 
           div(class="half")
@@ -43,4 +47,9 @@ block mainContent
                   li
                     a(href="/#{tag}") #{tag}
 
-      footer footer
+      footer
+          div(class="container-fluid")
+            p #maptw.it is &copy;copywrite
+              | <a href="">@paulcampbell_</a>, thrown together during a slightly hectic
+              | <a href="https://twitter.com/search?q=OneWeekNodeHack">#OneWeekNodeHack</a>.
+            p Feel free to contact me on twitter.  Will work for beer and green fees.
