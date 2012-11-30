@@ -12,7 +12,8 @@
     "mongoose": ">=2.7.1",
     "underscore": ">=1.4.2",
     "twitter": "*",
-    "geocoder": "*"
+    "geocoder": "*",
+    "moment": "*"
   },
     "devDependencies": {
       "mocha": ">=1.5.0",

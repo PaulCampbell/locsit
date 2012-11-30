@@ -13,7 +13,7 @@ var App = (function (google, HeatmapOverlay, $) {
      heatmapData;
 
 
-	function init() {
+	function init(tag) {
         markers = [];
         infoWindows = [];
         mapCentreLat = 53.567719;
@@ -32,26 +32,28 @@ var App = (function (google, HeatmapOverlay, $) {
                       };
         tweets = [];
 
-        getTweets($);
 
         map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
         heatmap = new HeatmapOverlay(map, {"radius":15, "visible":true, "opacity":60});
+
+
+        getTweets($, tag);
 
          google.maps.event.addListenerOnce(map, "idle", function(){
             heatmap.setDataSet(heatmapData);
         });
 	}
 
-    function getTweets($)
+    function getTweets($, tag)
     {
-        $.get('api/map/maptwit1', function(data) {
+        $.get('api/map/' + tag, function(data) {
 
           for (var i = 0; i < data.length; i++)
           {
               if(data[i].latitude_for_map && data[i].longitude_for_map)
               heatmapData.data.push({lat: data[i].latitude_for_map, lng:data[i].longitude_for_map, count: 4});
           }
-            console.log(heatmapData.data)
+
         });
     }
 
@@ -69,4 +71,8 @@ var App = (function (google, HeatmapOverlay, $) {
 }(google, HeatmapOverlay, $));
 
 
-App.Init();
+// we need the hashtag!
+var tag = window.location.pathname.substring(1)
+console.log(tag)
+
+App.Init(tag);
