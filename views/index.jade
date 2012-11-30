@@ -15,10 +15,10 @@ block mainContent
 
       div(class="container-fluid")
           div(class="half")
-            div(style="padding-right:20px")
+            div(style="padding-right:30px")
               h2 How it works
               p Basically you can view a map for any hashtag.
-              p  Add a postcode or zipcode, or geocode your tweet and it will get pinned on the map.
+              p  Add a postcode, zipcode or geocode your tweet and it will get pinned on the map.
               p  Add a score out of ten in the format 4/10, and the tweet will be added to a heat map.
 
 
@@ -26,11 +26,11 @@ block mainContent
               p So, let's say there are floods affecting the UK, and people are tweeting with the hashtag
                 | #TheseFloodsAreInconvenient.
               p You can visit the page <a href="/TheseFloodsAreInconvenient">http://maptw.it/TheseFloodsAreInconvenient</a>
-                | and see were and how serious the floods are as reported in real time by the good folks on Twitter
+                | and see where and how serious the floods are as reported in real time by the good folks on Twitter
 
 
               h3 A contrived example please
-              p "The river's burst its bank again. LS10 1PQ 6/10 #TheseFloodsAreInconvenient"
+              p "The river's burst its bank again and little Timmy's still trapped in the mine O_o LS10 1PQ 8/10 #TheseFloodsAreInconvenient"
 
 
           div(class="half")
@@ -41,7 +41,7 @@ block mainContent
                     span(class="add-on")#
                     input(placeholder="Hashtag", class="input-xlarge", type="text")
                     button(class="btn", type="button") Go
-              h2 Recently active maps
+              h3 Recently active maps
               ul(id="recent-tags")
                 each tag in hashtags
                   li
@@ -49,7 +49,7 @@ block mainContent
 
       footer
           div(class="container-fluid")
-            p #maptw.it is &copy;copywrite
+            p #maptw.it is &copy;copyright
               | <a href="">@paulcampbell_</a>, thrown together during a slightly hectic
               | <a href="https://twitter.com/search?q=OneWeekNodeHack">#OneWeekNodeHack</a>.
             p Feel free to contact me on twitter.  Will work for beer and green fees.
@@ -57,4 +57,4 @@ block mainContent
             p(class="push-down") This is a really big footer.
             p(class="push-down") I may be late to the party, but I got here eventually...
             p(class="push-down") A REALLY big footer.
-            p(class="push-right-down") Oh yeah! Massive footer!
+            p(class="push-right-down") Oh yeah, massive footer!
