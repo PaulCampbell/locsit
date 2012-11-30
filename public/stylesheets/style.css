@@ -17,6 +17,16 @@ footer {
   border-top: 1px solid #e5e5e5;
   background-color: whiteSmoke;
 }
+.push-down {
+  margin-top: 70px;
+  color: #c9c9c9;
+  font-size: large;
+}
+.push-right-down {
+  margin-top: 260px;
+  color: #c9c9c9;
+  font-size: large;
+}
 body {
   padding-top: 45px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
