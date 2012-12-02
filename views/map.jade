@@ -8,11 +8,11 @@ block mainContent
         li(class="clearfix")
           div
             img(src="#{tweet.profile_image_url}")
-            h4
-              a(href="https://twitter.com/#{tweet.from_user}") @#{tweet.from_user}
+            strong
+              a(href="https://twitter.com/#{tweet.from_user}") #{tweet.from_user}<br />
 
             !{tweet.text_as_html}
-            time
+            time(datetime="!{tweet.created_at}")
               !{tweet.pretty_date}
 
   div(class="large-column fill")

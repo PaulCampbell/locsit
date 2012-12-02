@@ -3,7 +3,7 @@ var TwitterService = require('../lib/TwitterService')
 var ErrorHandler = require('./errorHandler')
 
 function home(req,res) {
-    Models.Visit.distinct('hashtag').limit(100).sort('-visit_date')
+    Models.Visit.distinct('hashtag').limit(5).sort('-visit_date')
           .exec(function(err, docs){
             if(err)
             {
@@ -14,6 +14,7 @@ function home(req,res) {
             }
             else
             {
+                console.log(docs)
                 res.render('index', {
                       hashtags: docs,
                       title: 'Realtime Twitter Maps'

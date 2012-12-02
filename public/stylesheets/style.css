@@ -57,20 +57,20 @@ body {
   min-height: 100%;
   display: block;
   overflow: scroll;
+  padding-top: 4px;
+}
+.tweet-list li {
+  padding-bottom: 4px;
+  margin-bottom: 2px;
 }
 .tweet-list li img {
   float: left;
   margin-right: 5px;
-}
-.tweet-list li h2 a {
-  size: 15px;
-  padding: 0;
-  line-height: 10px;
-  margin-bottom: 5px;
+  border: solid 1px #dedede;
 }
 .tweet-list li time {
-  size: small;
-  display: block;
+  font-size: 10px;
+  padding-left: 5px;
 }
 .tweet-list li div {
   padding: 0 5px 0 5px;
