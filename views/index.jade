@@ -36,11 +36,10 @@ block mainContent
           div(class="half")
               h2 Give me a map
               p Enter the hashtag you want to see mapped
-              form(method="get")
-                div(class="input-prepend input-append")
+              div(class="input-prepend input-append")
                     span(class="add-on")#
-                    input(placeholder="Hashtag", class="input-xlarge", type="text")
-                    button(class="btn", type="button") Go
+                    input(placeholder="Hashtag", class="input-xlarge", type="text", id="txtTag")
+                    button(class="btn", type="button", id="FindMap") Go
               h3 Recently active maps
               ul(id="recent-tags")
                 each tag in hashtags
@@ -58,3 +57,13 @@ block mainContent
             p(class="push-down") I may be late to the party, but I got here eventually...
             p(class="push-down") And they said I wasn't a designer.
             p(class="push-right-down") Oh yeah, MASSIVE footer!
+
+  script
+        $(document).ready(function(){
+        $('#FindMap').click(function(){
+            console.log('click')
+            var tag = $('#txtTag').val();
+            if(tag!="")
+              window.location.replace("/" + tag);
+        })
+        })

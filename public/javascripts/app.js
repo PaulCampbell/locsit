@@ -44,7 +44,6 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
 
         heatmap = new HeatmapOverlay(map, {"radius":15, "visible":true, "opacity":60});
 
-
         getTweets($, tag);
 
          google.maps.event.addListenerOnce(map, "idle", function(){
@@ -54,36 +53,74 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
 
     function getTweets($, tag)
     {
-        $.get('api/map/' + tag, function(data) {
 
-            var testDAta = [{latitude_for_map : 52.23423, longitude_for_map: -1.3, name:'A place', description: 'tweet text'},
-                {latitude_for_map : 51.23423, longitude_for_map: -1.3},
-                {latitude_for_map : 52.23423, longitude_for_map: -1.5}];
-
-
-          for (var i = 0; i < testDAta.length; i++)
+        $.get('/api/map/' + tag, function(data) {
+          for (var i = 0; i < data.length; i++)
           {
-              if(testDAta[i].latitude_for_map && testDAta[i].longitude_for_map)
-              heatmapData.data.push({lat: testDAta[i].latitude_for_map, lng:testDAta[i].longitude_for_map, count: 4});
+              if(data[i].latitude_for_map && data[i].longitude_for_map)
+              heatmapData.data.push({lat: data[i].latitude_for_map, lng:data[i].longitude_for_map, count: 4});
 
-              addPinAndInfoWindow(testDAta[i])
+              addPinAndInfoWindow(data[i])
           }
-            console.log(markers)
+          centreMap(data);
         });
     }
 
-    function addPinAndInfoWindow(place)
+    function centreMap(data)
+    {
+
+        var highestLat,
+            highestLong,
+            lowestLat,
+            lowestLong;
+
+        for (var i = 0; i < data.length; i++)
+          {
+              console.log(data[i].latitude_for_map + ', ' + data[i].longitude_for_map)
+            if(highestLat == null)
+            {
+                highestLat = data[i].latitude_for_map;
+                lowestLat = data[i].latitude_for_map;
+                highestLong = data[i].longitude_for_map;
+                lowestLong = data[i].longitude_for_map;
+            }
+
+            if(data[i].latitude_for_map < lowestLat)
+            {
+                lowestLat = data[i].latitude_for_map;
+            }
+            if(data[i].latitude_for_map > highestLat)
+            {
+                highestLat = data[i].latitude_for_map
+            }
+            if(data[i].longitude_for_map < lowestLong)
+            {
+                lowestLong = data[i].longitude_for_map;
+            }
+            if(data[i].longitude_for_map > highestLong)
+            {
+                highestLong = data[i].longitude_for_map
+            }
+          }
+
+        var centreLat = highestLat - ((highestLat - lowestLat)/2);
+        var centreLong = highestLong - ((highestLong - lowestLong)/2)
+        console.log(centreLat + ',' + centreLong)
+        map.setCenter(new google.maps.LatLng( centreLat,centreLong))
+    }
+
+    function addPinAndInfoWindow(tweet)
     {
         var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(place.latitude_for_map, place.longitude_for_map),
-            title: place.name
+            position: new google.maps.LatLng(tweet.latitude_for_map, tweet.longitude_for_map),
+            title: tweet.name
         });
          markers.push(marker)
         // To add the marker to the map, call setMap();
 
 
         var infowindow = new google.maps.InfoWindow({
-            content: "<h4>" + place.name + "</h4>" + place.description
+            content: "<h4>" + tweet.from_user + "</h4>" + tweet.text
         });
 
         infoWindows.push(infowindow);
@@ -114,8 +151,8 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
         };
 
 	
-	Api.Init = function(){
-        init();
+	Api.Init = function(tag){
+        init(tag);
     };
 
     Api.UpdateMap = function()
@@ -152,3 +189,5 @@ var tag = window.location.pathname.substring(1)
 console.log(tag)
 
 App.Init(tag);
+
+

@@ -5,7 +5,7 @@ var ErrorHandler = require('./errorHandler')
 
 function map(req,res) {
     var tag = req.params.hashtag;
-
+    console.log(tag)
     TwitterService.getTweets(tag,  function(err, tweets){
       if(err)
       {
