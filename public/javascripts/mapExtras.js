@@ -26,10 +26,10 @@ var MapExtras = (function(){
       controlText.style.fontFamily = 'Arial,sans-serif';
       controlText.style.fontSize = '12px';
       controlText.style.padding = '2px 4px';
-      controlText.innerHTML = '<strong>Show pins</strong>';
+      controlText.innerHTML = '<strong>Show heat map</strong>';
       pinButton.appendChild(controlText);
 
-      overlayState = "Heatmap"
+      overlayState = "pins"
 
       // Setup the click event listeners: simply set the map to Chicago.
       google.maps.event.addDomListener(pinButton, 'click', function() {

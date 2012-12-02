@@ -12,7 +12,7 @@ block mainContent
               a(href="https://twitter.com/#{tweet.from_user}") #{tweet.from_user}<br />
 
             span(class="small-text") !{tweet.text_as_html}
-            time(datetime="!{tweet.created_at}")
+            time(datetime="#{tweet.created_at}")
               !{tweet.pretty_date}
 
   div(class="large-column fill")

@@ -160,3 +160,6 @@ a.brand {
   max-width: 1020px;
   margin: auto;
 }
+.message {
+  padding: 10px;
+}

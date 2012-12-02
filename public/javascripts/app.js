@@ -10,10 +10,12 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
      mapCentreLong,
      tweets,
      heatmap,
-     heatmapData;
+     heatmapData,
+     centreSet;
 
 
 	function init(tag) {
+        centreSet = false;
         markers = [];
         infoWindows = [];
         mapCentreLat = 53.567719;
@@ -42,28 +44,49 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
         overlayToggleDiv.index = 1;
         map.controls[google.maps.ControlPosition.TOP_RIGHT].push(overlayToggleDiv);
 
-        heatmap = new HeatmapOverlay(map, {"radius":15, "visible":true, "opacity":60});
-
-        getTweets($, tag);
+        heatmap = new HeatmapOverlay(map, {"radius":15, "visible":false, "opacity":80});
 
          google.maps.event.addListenerOnce(map, "idle", function(){
             heatmap.setDataSet(heatmapData);
         });
+
+
 	}
 
     function getTweets($, tag)
     {
-
+        var that = this
+        console.log('fetching updates')
         $.get('/api/map/' + tag, function(data) {
+          if(data.length ==0)
+          {
+                noDataFound(tag)
+          }
+            else
+          {
+
           for (var i = 0; i < data.length; i++)
           {
               if(data[i].latitude_for_map && data[i].longitude_for_map)
-              heatmapData.data.push({lat: data[i].latitude_for_map, lng:data[i].longitude_for_map, count: 4});
-
+              {
+              heatmapData.data.push({lat: data[i].latitude_for_map, lng:data[i].longitude_for_map, count: data[i].rating});
               addPinAndInfoWindow(data[i])
+              }
           }
-          centreMap(data);
+              if(markers.length > 0 && that.centreSet == false)
+              {
+                that.centreSet = true
+                centreMap(data);
+              }
+        }
+
+
         });
+    }
+
+    function noDataFound(tag)
+    {
+        $('.small-column').html('<div class="message text-error">No data found for #' + tag + '</div>');
     }
 
     function centreMap(data)
@@ -76,7 +99,6 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
 
         for (var i = 0; i < data.length; i++)
           {
-              console.log(data[i].latitude_for_map + ', ' + data[i].longitude_for_map)
             if(highestLat == null)
             {
                 highestLat = data[i].latitude_for_map;
@@ -105,7 +127,6 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
 
         var centreLat = highestLat - ((highestLat - lowestLat)/2);
         var centreLong = highestLong - ((highestLong - lowestLong)/2)
-        console.log(centreLat + ',' + centreLong)
         map.setCenter(new google.maps.LatLng( centreLat,centreLong))
     }
 
@@ -117,7 +138,7 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
         });
          markers.push(marker)
         // To add the marker to the map, call setMap();
-
+        marker.setMap(map)
 
         var infowindow = new google.maps.InfoWindow({
             content: "<h4>" + tweet.from_user + "</h4>" + tweet.text
@@ -157,7 +178,7 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
 
     Api.UpdateMap = function()
     {
-
+        getTweets($,tag)
     }
 
     Api.ToggleOverlay = function(overlayState)
@@ -190,4 +211,8 @@ console.log(tag)
 
 App.Init(tag);
 
+$(function() {
+    App.UpdateMap()
+    setInterval(App.UpdateMap, 5000)
+});
 
