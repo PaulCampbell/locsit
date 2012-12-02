@@ -14,9 +14,19 @@ function home(req,res) {
             }
             else
             {
+                var docsForPage = [];
+                var i = 0
+                docs.forEach(function(d){
+                    if(i < 9)
+                    {
+                    docsForPage.push(d);
+                    i++
+                    }
+                })
+
                 console.log(docs)
                 res.render('index', {
-                      hashtags: docs,
+                      hashtags: docsForPage,
                       title: 'Realtime Twitter Maps'
                     });
             }

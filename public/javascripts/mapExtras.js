@@ -53,5 +53,16 @@ var MapExtras = (function(){
         App.ToggleOverlay(overlayState);
     }
 
+
+    Api.TimeDropDown = function(controlDiv){
+        controlDiv.style.padding = '5px';
+        timeDropDown = document.createElement('select');
+        timeDropDown.style.backgroundColor = 'white';
+
+        timeDropDown.title = 'Click to set the map to Home';
+             controlDiv.appendChild(timeDropDown);
+
+    }
+
     return Api;
 }())

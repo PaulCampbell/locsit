@@ -27,9 +27,9 @@ html(lang="en")
                   a(href="https://twitter.com/search?q=#{hashtag}") ##{hashtag}
               - else
                 | Map all the things
-
-            span(class="tag pull-right", style="padding-right:10px; font-weight:bold")
-              a(href="/") WTF?
+            - if(typeof(hashtag) != 'undefined')
+              span(class="tag pull-right", style="padding-right:10px; font-weight:bold")
+                a(href="/") WTF?
 
     block mainContent
 
