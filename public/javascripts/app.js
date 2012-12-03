@@ -53,12 +53,14 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
 
 	}
 
-    function getTweets($, tag)
+    function getTweets($, tag, dateFrom)
     {
         var that = this
-        console.log('fetching updates')
-        $.get('/api/map/' + tag, function(data) {
-          if(data.length ==0)
+        var apiUrl = '/api/map/' + tag;
+        if(dateFrom)
+            apiUrl = apiUrl + '?from=' + dateFrom
+        $.get(apiUrl, function(data) {
+          if(data.length ==0 && tweets.length ==0)
           {
                 noDataFound(tag)
           }
@@ -67,12 +69,19 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
 
           for (var i = 0; i < data.length; i++)
           {
+              // add tweet to list
+              // TODO... refactor this!
+              var newTweetItem = '<li class="clearfix"><div><img src="' + data[i].profile_image_url + '"><strong><a href="https://twitter.com/' + data[i].from_user + '">' + data[i].from_user + '<br></a></strong><span class="small-text">' + data[i].text_as_html + '</span><time datetime="' + data[i].created_at + '">' + data[i].pretty_date + '</time></div></li>';
+              $('.tweet-list').prepend(newTweetItem)
+
+              // add pin and heatmap point to map
               if(data[i].latitude_for_map && data[i].longitude_for_map)
               {
               heatmapData.data.push({lat: data[i].latitude_for_map, lng:data[i].longitude_for_map, count: data[i].rating});
               addPinAndInfoWindow(data[i])
               }
           }
+              // centre the map
               if(markers.length > 0 && that.centreSet == false)
               {
                 that.centreSet = true
@@ -132,6 +141,7 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
 
     function addPinAndInfoWindow(tweet)
     {
+        tweets.push(tweet);
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(tweet.latitude_for_map, tweet.longitude_for_map),
             title: tweet.name
@@ -178,7 +188,13 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
 
     Api.UpdateMap = function()
     {
-        getTweets($,tag)
+        var dateFrom = null;
+        if(tweets.length > 0)
+        {
+            console.log(tweets)
+            dateFrom = tweets[0].created_at
+        }
+        getTweets($,tag,dateFrom)
     }
 
     Api.ToggleOverlay = function(overlayState)
@@ -213,6 +229,6 @@ App.Init(tag);
 
 $(function() {
     App.UpdateMap()
-    setInterval(App.UpdateMap, 5000)
+    setInterval(App.UpdateMap, 10000)
 });
 

@@ -45,7 +45,7 @@ block mainContent
               ul(id="recent-tags")
                 each tag in hashtags
                   li
-                    a(href="/#{tag}") ##{tag}
+                    a(href="/#{tag.tag}") ##{tag.tag}
 
       footer
           div(class="container-fluid")
