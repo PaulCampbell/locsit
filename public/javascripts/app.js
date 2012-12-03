@@ -59,6 +59,9 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
         var apiUrl = '/api/map/' + tag;
         if(dateFrom)
             apiUrl = apiUrl + '?from=' + dateFrom
+
+        console.log('getting tweets: ' + apiUrl)
+
         $.get(apiUrl, function(data) {
           if(data.length ==0 && tweets.length ==0)
           {
@@ -71,6 +74,7 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
           {
               // add tweet to list
               // TODO... refactor this!
+              tweets.push(data[i]);
               var newTweetItem = '<li class="clearfix"><div><img src="' + data[i].profile_image_url + '"><strong><a href="https://twitter.com/' + data[i].from_user + '">' + data[i].from_user + '<br></a></strong><span class="small-text">' + data[i].text_as_html + '</span><time datetime="' + data[i].created_at + '">' + data[i].pretty_date + '</time></div></li>';
               $('.tweet-list').prepend(newTweetItem)
 
@@ -141,7 +145,7 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
 
     function addPinAndInfoWindow(tweet)
     {
-        tweets.push(tweet);
+
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(tweet.latitude_for_map, tweet.longitude_for_map),
             title: tweet.name
