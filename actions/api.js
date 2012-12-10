@@ -23,7 +23,7 @@ function map(req,res) {
               o.text_as_html = t.text_as_html;
             objects.push(o)
           });
-          console.log(objects)
+          //console.log(objects)
           res.send(objects);
       }
     })

@@ -45,21 +45,21 @@ describe 'Models', ->
 
     it 'rating can be extracted 1', (done) ->
       tweet = new Models.Tweet({text:"some text with no postcode but with score 1/10."})
-      tweet.setRatingForMaps
-      tweet.rating.should.equal 1
-      done()
+      tweet.setRatingForMaps (r) ->
+        tweet.rating.should.equal 1
+        done()
 
     it 'rating can be extracted 10',  (done)  ->
         tweet = new Models.Tweet({text:"some text with no postcode but with score 10/10."})
-        tweet.setRatingForMaps
-        tweet.rating.should.equal 10
-        done()
+        tweet.setRatingForMaps (r) ->
+          tweet.rating.should.equal 10
+          done()
 
     it 'no rating tweeted get a rating of 0',  (done)  ->
       tweet = new Models.Tweet({text:"some text with no postcode but with no score."})
-      tweet.setRatingForMaps
-      tweet.rating.should.equal 0
-      done()
+      tweet.setRatingForMaps (r) ->
+        tweet.rating.should.equal 0
+        done()
 
     describe 'Setting the tweet location for use on the map', ->
 
