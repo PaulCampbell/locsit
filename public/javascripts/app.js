@@ -43,6 +43,11 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
         MapExtras.PinHeatMapToggleControl(overlayToggleDiv, map, google)
         overlayToggleDiv.index = 1;
         map.controls[google.maps.ControlPosition.TOP_RIGHT].push(overlayToggleDiv);
+        
+        var overlayTimeDropDownDiv = document.createElement('overlayTimeDropDownDiv');
+        MapExtras.TimeDropDown(overlayTimeDropDownDiv)
+        overlayTimeDropDownDiv.index = 1
+        map.controls[google.maps.ControlPosition.TOP_RIGHT].push(overlayTimeDropDownDiv);
 
         heatmap = new HeatmapOverlay(map, {"radius":15, "visible":false, "opacity":80});
 
@@ -188,9 +193,17 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
         init(tag);
     };
 
-    Api.UpdateMap = function()
+    Api.UpdateMap = function(resetToTime)
     {
         var dateFrom = null;
+       
+       if(resetToTime!=null)
+        {
+        $('.tweet-list').html('');
+          tweets= [];
+          dateFrom = new Date().getTime()  - ((60 * resetToTime) * 60 * 1000);
+        }
+     
         if(tweets.length > 0)
         {
             console.log(tweets)
