@@ -197,10 +197,15 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
     {
         var dateFrom = null;
        
-       if(resetToTime!=null)
-        {
-        $('.tweet-list').html('');
+        if(resetToTime!=null) {
+          // clear the tweetlist and remove the pins / heatmap points.
+          $('.tweet-list').html('');
           tweets= [];
+          heatmapData.data = [];
+         for (var i = 0; i < markers.length; i++ ) {
+            markers[i].setMap(null);
+          }
+           markers = [];
           dateFrom = new Date().getTime()  - ((60 * resetToTime) * 60 * 1000);
         }
      
@@ -243,7 +248,7 @@ console.log(tag)
 App.Init(tag);
 
 $(function() {
-    App.UpdateMap()
+    App.UpdateMap(12)
     setInterval(App.UpdateMap, 10000)
 });
 
