@@ -43,6 +43,11 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
         MapExtras.PinHeatMapToggleControl(overlayToggleDiv, map, google)
         overlayToggleDiv.index = 1;
         map.controls[google.maps.ControlPosition.TOP_RIGHT].push(overlayToggleDiv);
+        
+        var overlayTimeDropDownDiv = document.createElement('overlayTimeDropDownDiv');
+        MapExtras.TimeDropDown(overlayTimeDropDownDiv)
+        overlayTimeDropDownDiv.index = 1
+        map.controls[google.maps.ControlPosition.TOP_RIGHT].push(overlayTimeDropDownDiv);
 
         heatmap = new HeatmapOverlay(map, {"radius":15, "visible":false, "opacity":80});
 
@@ -59,9 +64,7 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
         var apiUrl = '/api/map/' + tag;
         if(dateFrom)
             apiUrl = apiUrl + '?from=' + dateFrom
-
-        console.log('getting tweets: ' + apiUrl)
-
+        console.log(apiUrl);
         $.get(apiUrl, function(data) {
           if(data.length ==0 && tweets.length ==0)
           {
@@ -69,22 +72,21 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
           }
             else
           {
+            var reversedData = data.reverse();
+            for (var i = 0; i < data.length; i++)
+            {
+                  // add tweet to list
+                  tweets.push(data[i]);
+                  var newTweetItem = getTweetListItem(reversedData[i]);
+                  $('.tweet-list').prepend(newTweetItem)
 
-          for (var i = 0; i < data.length; i++)
-          {
-              // add tweet to list
-              // TODO... refactor this!
-              tweets.push(data[i]);
-              var newTweetItem = '<li class="clearfix"><div><img src="' + data[i].profile_image_url + '"><strong><a href="https://twitter.com/' + data[i].from_user + '">' + data[i].from_user + '<br></a></strong><span class="small-text">' + data[i].text_as_html + '</span><time datetime="' + data[i].created_at + '">' + data[i].pretty_date + '</time></div></li>';
-              $('.tweet-list').prepend(newTweetItem)
-
-              // add pin and heatmap point to map
-              if(data[i].latitude_for_map && data[i].longitude_for_map)
-              {
-              heatmapData.data.push({lat: data[i].latitude_for_map, lng:data[i].longitude_for_map, count: data[i].rating});
-              addPinAndInfoWindow(data[i])
+                  // add pin and heatmap point to map
+                  if(reversedData[i].latitude_for_map && reversedData[i].longitude_for_map)
+                  {
+                  heatmapData.data.push({lat: reversedData[i].latitude_for_map, lng:reversedData[i].longitude_for_map, count: reversedData[i].rating});
+                  addPinAndInfoWindow(reversedData[i])
+                  }
               }
-          }
               // centre the map
               if(markers.length > 0 && that.centreSet == false)
               {
@@ -95,6 +97,11 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
 
 
         });
+    }
+
+    function getTweetListItem(data)
+    {
+        return '<li class="clearfix"><div><img src="' + data.profile_image_url + '"><strong><a href="https://twitter.com/' + data.from_user + '">' + data.from_user + '<br></a></strong><span class="small-text">' + data.text_as_html + '</span><time datetime="' + data.created_at + '">' + data.pretty_date + '</time></div></li>'
     }
 
     function noDataFound(tag)
@@ -145,7 +152,7 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
 
     function addPinAndInfoWindow(tweet)
     {
-
+      
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(tweet.latitude_for_map, tweet.longitude_for_map),
             title: tweet.name
@@ -190,13 +197,26 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
         init(tag);
     };
 
-    Api.UpdateMap = function()
+    Api.UpdateMap = function(resetToTime)
     {
         var dateFrom = null;
+       
+        if(resetToTime!=null) {
+          // clear the tweetlist and remove the pins / heatmap points.
+          $('.tweet-list').html('');
+          tweets= [];
+          heatmapData.data = [];
+         for (var i = 0; i < markers.length; i++ ) {
+            markers[i].setMap(null);
+          }
+           markers = [];
+          dateFrom = new Date().getTime()  - ((60 * resetToTime) * 60 * 1000);
+        }
+     
         if(tweets.length > 0)
         {
             console.log(tweets)
-            dateFrom = tweets[0].created_at
+            dateFrom = tweets[tweets.length-1].created_at
         }
         getTweets($,tag,dateFrom)
     }
@@ -232,7 +252,6 @@ console.log(tag)
 App.Init(tag);
 
 $(function() {
-    App.UpdateMap()
+    App.UpdateMap(12)
     setInterval(App.UpdateMap, 10000)
 });
-

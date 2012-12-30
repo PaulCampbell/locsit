@@ -20,10 +20,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="33" selection-start="1994" selection-end="1994" vertical-scroll-proportion="0.0">
+            <state line="222" column="0" selection-start="6770" selection-end="6770" vertical-scroll-proportion="5.680307">
               <folding />
             </state>
           </provider>
@@ -68,16 +68,16 @@
       <file leaf-file-name="TwitterService.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/TwitterService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="33" selection-start="1771" selection-end="1771" vertical-scroll-proportion="0.0">
+            <state line="20" column="26" selection-start="612" selection-end="612" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Models.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Models.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/Models.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="53" selection-start="3109" selection-end="3109" vertical-scroll-proportion="0.22029702">
+            <state line="116" column="17" selection-start="3530" selection-end="3530" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -131,17 +131,16 @@
         <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.styl" />
         <option value="$PROJECT_DIR$/views/map.jade" />
-        <option value="$PROJECT_DIR$/public/javascripts/app.js" />
         <option value="$PROJECT_DIR$/actions/api.js" />
-        <option value="$PROJECT_DIR$/lib/TwitterService.js" />
         <option value="$PROJECT_DIR$/test/models_spec.coffee" />
         <option value="$PROJECT_DIR$/lib/Models.js" />
+        <option value="$PROJECT_DIR$/lib/TwitterService.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/app.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="y" value="26" />
+    <option name="y" value="27" />
     <option name="width" value="1440" />
     <option name="height" value="797" />
   </component>
@@ -429,7 +428,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="26" width="1440" height="797" extended-state="0" />
+    <frame x="0" y="27" width="1440" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -576,27 +575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="33" selection-start="1994" selection-end="1994" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/actions/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="17" selection-start="718" selection-end="718" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/TwitterService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="33" selection-start="1771" selection-end="1771" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/twitter_service_specs.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="19" selection-start="1389" selection-end="1389" vertical-scroll-proportion="0.0">
@@ -613,7 +591,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/Models.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="53" selection-start="3109" selection-end="3109" vertical-scroll-proportion="0.22029702">
+        <state line="116" column="17" selection-start="3530" selection-end="3530" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actions/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="17" selection-start="718" selection-end="718" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/TwitterService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="26" selection-start="612" selection-end="612" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="222" column="0" selection-start="6770" selection-end="6770" vertical-scroll-proportion="5.680307">
           <folding />
         </state>
       </provider>

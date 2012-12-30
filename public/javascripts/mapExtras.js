@@ -55,14 +55,48 @@ var MapExtras = (function(){
 
 
     Api.TimeDropDown = function(controlDiv){
-        controlDiv.style.padding = '5px';
-        timeDropDown = document.createElement('select');
-        timeDropDown.style.backgroundColor = 'white';
-
-        timeDropDown.title = 'Click to set the map to Home';
-             controlDiv.appendChild(timeDropDown);
-
+    
+      var label = document.createElement('label');
+      label.for = "time";
+      label.innerHTML = 'show tweets from';
+    //  controlDiv.appendChild(label);
+      
+      controlDiv.style.padding = '5px';
+      var timeDropDown = document.createElement('select');
+      timeDropDown.name = "time"
+      timeDropDown.style.backgroundColor = 'white';
+      timeDropDown.style.padding = 0;
+      timeDropDown.style.height = '23px';
+      timeDropDown.title = 'Click to set the map to Home';
+      controlDiv.appendChild(timeDropDown);
+  
+      var optionOne = document.createElement('option');
+      optionOne.value = '12'
+      optionOne.innerHTML = 'last 12 hours';
+      timeDropDown.appendChild(optionOne);
+      
+      var optionTwo = document.createElement('option');
+      optionTwo.value = '24'
+      optionTwo.innerHTML = 'last day';
+      timeDropDown.appendChild(optionTwo);
+      
+      var optionThree = document.createElement('option');
+      optionThree.value = '168'
+      optionThree.innerHTML = 'last 7 days';
+      timeDropDown.appendChild(optionThree);
+      
+       google.maps.event.addDomListener(timeDropDown, 'change', function() {
+          var timeLimit = timeDropDown.value;
+          ChangeTime(timeLimit);
+      });
     }
+    
+     ChangeTime = function(timeLimit){
+       console.log('time changed ' + timeLimit)
+        App.UpdateMap(timeLimit)
+     }
+    
+    
 
     return Api;
 }())
