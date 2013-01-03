@@ -65,7 +65,7 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
         var apiUrl = '/api/map/' + tag;
         if(dateFrom)
             apiUrl = apiUrl + '?from=' + dateFrom
-     
+
         console.log(apiUrl);
         $.get(apiUrl, function(data) {
           if(data.length==0 && tweets.length ==0)
@@ -110,7 +110,10 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
     function noDataFound(tag)
     {
         if($('.no-data').length==0)
-          $('.tweet-list').prepend('<li class="no-data"><div class="message text-error">No data found for #' + tag + '</div></li>')
+          $('.tweet-list').prepend('<li class="no-data"><div class="message text-error">No data found for #' + tag + '</div>' +
+              '<div class="map-instruction alert alert-block"><h5>To add content to this page, go tweet with the hashtag #' + tag + '</h5>' +
+              'Add your postcode and a rating out of ten in the format 4/10 to add your tweet to the map!</div>' +
+              '</li>')
     }
 
     function centreMap(data)

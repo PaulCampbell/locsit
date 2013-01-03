@@ -175,3 +175,6 @@ a.brand {
   font-weight: bold;
   background-color: #fefefe;
 }
+.map-instruction {
+  margin: 10px 5px;
+}
