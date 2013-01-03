@@ -75,12 +75,13 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
             else
           {
             var reversedData = data.reverse();
+            $('no-data').remove();
             for (var i = 0; i < data.length; i++)
             {
                   // add tweet to list
                   tweets.push(data[i]);
                   var newTweetItem = getTweetListItem(reversedData[i]);
-                  $('no-data').remove();
+
                   $('.tweet-list').prepend(newTweetItem)
 
                   // add pin and heatmap point to map
