@@ -170,7 +170,7 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
         marker.setMap(map)
 
         var infowindow = new google.maps.InfoWindow({
-            content: "<h4>" + tweet.from_user + "</h4>" + tweet.text
+            content: "<h4>" + tweet.from_user + "</h4>" + tweet.text_as_html
         });
 
         infoWindows.push(infowindow);

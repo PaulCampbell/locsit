@@ -20,19 +20,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="12" selection-start="2166" selection-end="2166" vertical-scroll-proportion="-5.9615383">
+            <state line="172" column="76" selection-start="5697" selection-end="5697" vertical-scroll-proportion="0.34246576">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.jade" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="layout.jade" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/layout.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="44" selection-start="337" selection-end="337" vertical-scroll-proportion="0.259901">
+            <state line="7" column="44" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -41,8 +41,19 @@
       <file leaf-file-name="api.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/actions/api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="17" selection-start="718" selection-end="718" vertical-scroll-proportion="0.0">
+            <state line="18" column="39" selection-start="507" selection-end="507" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DemoData.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/DemoData.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="67" column="46" selection-start="3393" selection-end="3393" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#165#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,7 +79,7 @@
       <file leaf-file-name="TwitterService.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/TwitterService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="26" selection-start="612" selection-end="612" vertical-scroll-proportion="0.0">
+            <state line="84" column="0" selection-start="2544" selection-end="2567" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -111,8 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/javascripts/heatmapsGMaps.js" />
-        <option value="$PROJECT_DIR$/lib/GoogleGeoLookupService.js" />
         <option value="$PROJECT_DIR$/test/web_spec.coffee" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/public/javascripts/mapExtras.js" />
@@ -120,13 +129,15 @@
         <option value="$PROJECT_DIR$/actions/home.js" />
         <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/views/map.jade" />
-        <option value="$PROJECT_DIR$/actions/api.js" />
         <option value="$PROJECT_DIR$/test/models_spec.coffee" />
         <option value="$PROJECT_DIR$/lib/Models.js" />
         <option value="$PROJECT_DIR$/lib/TwitterService.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.styl" />
-        <option value="$PROJECT_DIR$/public/javascripts/app.js" />
         <option value="$PROJECT_DIR$/views/layout.jade" />
+        <option value="$PROJECT_DIR$/lib/demoData.js" />
+        <option value="$PROJECT_DIR$/actions/api.js" />
+        <option value="$PROJECT_DIR$/lib/DemoData.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/app.js" />
       </list>
     </option>
   </component>
@@ -453,13 +464,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/javascripts/mapExtras.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="4" selection-start="2078" selection-end="2078" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/web_spec.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -509,30 +513,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Models.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="17" selection-start="3530" selection-end="3530" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/TwitterService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="26" selection-start="612" selection-end="612" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/actions/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="17" selection-start="718" selection-end="718" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -544,13 +527,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="12" selection-start="2166" selection-end="2166" vertical-scroll-proportion="-5.9615383">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/images/favicon.ico">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -558,7 +534,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/layout.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="44" selection-start="337" selection-end="337" vertical-scroll-proportion="0.259901">
+        <state line="7" column="44" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Models.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="17" selection-start="3530" selection-end="3530" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/TwitterService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="0" selection-start="2544" selection-end="2567" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actions/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="39" selection-start="507" selection-end="507" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/DemoData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="46" selection-start="3393" selection-end="3393" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#165#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="172" column="76" selection-start="5697" selection-end="5697" vertical-scroll-proportion="0.34246576">
           <folding />
         </state>
       </provider>
