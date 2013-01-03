@@ -11,7 +11,8 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
      tweets,
      heatmap,
      heatmapData,
-     centreSet;
+     centreSet,
+     oldestTweetDate;
 
 
 	function init(tag) {
@@ -64,9 +65,10 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
         var apiUrl = '/api/map/' + tag;
         if(dateFrom)
             apiUrl = apiUrl + '?from=' + dateFrom
+     
         console.log(apiUrl);
         $.get(apiUrl, function(data) {
-          if(data.length ==0 && tweets.length ==0)
+          if(data.length==0 && tweets.length ==0)
           {
                 noDataFound(tag)
           }
@@ -78,6 +80,7 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
                   // add tweet to list
                   tweets.push(data[i]);
                   var newTweetItem = getTweetListItem(reversedData[i]);
+                  $('no-data').remove();
                   $('.tweet-list').prepend(newTweetItem)
 
                   // add pin and heatmap point to map
@@ -106,7 +109,8 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
 
     function noDataFound(tag)
     {
-        $('.small-column').html('<div class="message text-error">No data found for #' + tag + '</div>');
+        if($('.no-data').length==0)
+          $('.tweet-list').prepend('<li class="no-data"><div class="message text-error">No data found for #' + tag + '</div></li>')
     }
 
     function centreMap(data)
@@ -199,8 +203,6 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
 
     Api.UpdateMap = function(resetToTime)
     {
-        var dateFrom = null;
-       
         if(resetToTime!=null) {
           // clear the tweetlist and remove the pins / heatmap points.
           $('.tweet-list').html('');
@@ -210,8 +212,10 @@ var App = (function (google, HeatmapOverlay, $, MapExtras) {
             markers[i].setMap(null);
           }
            markers = [];
-          dateFrom = new Date().getTime()  - ((60 * resetToTime) * 60 * 1000);
+           oldestTweetDate = new Date().getTime()  - ((60 * resetToTime) * 60 * 1000);
         }
+
+        var dateFrom = oldestTweetDate;
      
         if(tweets.length > 0)
         {
